@@ -70,7 +70,7 @@ tip:如果使用符号（=）初始化一个变量，实际上执行是==拷贝�
 |函数|作用|
 | :----:|----|
 |<div style="width:150pt">to_string(val);|返回数值val的string表示。val可以是任何算术类型|
-|stoi(s,p,b);<td rowspan="5">颜色返回s的起始子串（表示整数内容）的数值，返回类型分别是int、long、unsigned long、long long、unsig long long。b表示转换所用的基数，默认值为10.p是size_t指针，用来保存s中第一个非数值字符的下标，p默认为0，即，函数不保存下标。</td>
+|stoi(s,p,b);<td rowspan="5">返回s的起始子串（表示整数内容）的数值，返回类型分别是int、long、unsigned long、long long、unsig long long。b表示转换所用的基数，默认值为10.p是size_t指针，用来保存s中第一个非数值字符的下标，p默认为0，即，函数不保存下标。</td>
 |stol(s,p,b);
 |stoul(s,p,b);
 |stoll(s,p,b);
