@@ -30,7 +30,7 @@ tip:如果使用符号（=）初始化一个变量，实际上执行是==拷贝�
 |isalpha(c);|当c是字母时为真|
 |iscntrl(c);|当c是控制字符时为真|
 |isdigit(c);|当c是数字时为真|
-|isgraph(c);$|当c不是空格但是可以打印时为真|
+|isgraph(c);|当c不是空格但是可以打印时为真|
 |islower(c);|当c是小写字母时为真|
 |isprint(c);|当c是可打印字符时为真|
 |ispunct(c);|当c是标点符号时为真|
