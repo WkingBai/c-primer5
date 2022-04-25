@@ -3,10 +3,15 @@
 ### 1.定义和初始化string对象
 
 1.string s1;    $\qquad $//默认初始化，s1是一个空串
+
 2.string s2(s1);$\qquad $//s2是s1的副本
+
 3.string s3("value");$\qquad $//s3是字面值"value"的副本，除了字面值最后的那个空字符外
+
 4.string s3 = "value"; $\qquad $ //等价于3
+
 5.string s4(n,'c');   $\qquad $  //把s4初始化为由连续n个字符c组成的串
+
   
 tip:如果使用符号（=）初始化一个变量，实际上执行是==拷贝初始化==，反正如果不使用则是==直接初始化==。
 
