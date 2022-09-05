@@ -29,7 +29,7 @@ const double *const pip = &p; //指向常量对象的常量指针
 
 1.顶层const：指针本身是个常量
 
-2.地层const：指针所指的对象是一个常量。
+2.底层const：指针所指的对象是一个常量。
 ```c++
 int i = 0;
 int *const p1 = &i;//p1值不能改变（顶层const）
