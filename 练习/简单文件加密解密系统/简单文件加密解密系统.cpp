@@ -6,37 +6,37 @@
 #include <algorithm>
 using namespace std;
 
-//¶ÁÈ¡ÊäÈëÎÄ¼þÊý¾Ý 
+//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
 string Read_data(const string& path)
 {
 	ifstream fin;
 	fin.open(path, ios::binary);
 	if (!fin.is_open()) {
-		cout << " ÎÞ·¨´ò¿ª¸ÃÎÄ¼þ£¡" << endl;
+		cout << " ï¿½Þ·ï¿½ï¿½ò¿ª¸ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½" << endl;
 		exit(0);
 	}
 	char ch;
 	string data;
-	while (fin.get(ch)) {   //get()º¯Êý²»ºöÂÔ°×É«¿Õ¸ñ×Ö·û£¨¿Õ¸ñ¡¢ÖÆ±í·û¡¢»»ÐÐ·û£© 
+	while (fin.get(ch)) {   //get()ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô°ï¿½É«ï¿½Õ¸ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Õ¸ï¿½ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½ 
 		data.push_back(ch);
 	}
 	fin.close();
 	return data;
 }
 
-//¶ÁÈ¡²¢ÅÐ¶ÏÂë±¾ÎÄ¼þÊý¾Ý 
+//ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ë±¾ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
 vector<string> JudgeAndRead_code(const string& path, bool& flag)
 {
 	ifstream fin;
 	vector<string> code;
 	fin.open(path, ios::binary);
 	if (!fin.is_open()) {
-		cout << " ÎÞ·¨´ò¿ªÎÄ¼þ£¡" << endl;
+		cout << " ï¿½Þ·ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½" << endl;
 		exit(0);
 	}
 
 	string buff;
-	while (fin >> buff) {  // fin >> ÐÎÊ½µÄ¶ÁÈ¡»áºöÂÔÈÎºÎ°×É«¿Õ¸ñ×Ö·û 
+	while (fin >> buff) {  // fin >> ï¿½ï¿½Ê½ï¿½Ä¶ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎºÎ°ï¿½É«ï¿½Õ¸ï¿½ï¿½Ö·ï¿½ 
 		code.push_back(buff);
 	}
 	for(char ch : code[0]){
@@ -49,7 +49,7 @@ vector<string> JudgeAndRead_code(const string& path, bool& flag)
 	return code;
 }
 
-// 26 ×ÖÄ¸Âë±¾µÄ±àÂë½âÂë
+// 26 ï¿½ï¿½Ä¸ï¿½ë±¾ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void encrypt(const string& data, const string& code, ofstream& out) 
 {
 	string res;
@@ -89,13 +89,13 @@ void decrypt(const string& data, const string& code, ofstream& out) {
 	out << res;
 }
 
-// 256 ¸öÊý×ÖÂë±¾µÄ±àÂë½âÂë
+// 256 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë±¾ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void encrypt_num(const string& data, const vector<string>& code, ofstream& out)
 {
 	string res;
 	for (unsigned char ch : data) { 
 		int num = ch;
-		char c = stoi(code[num]); //stoi½«×Ö·û´®×ª»¯ÎªintÐÍÊý×Ö 
+		char c = stoi(code[num]); //stoiï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½×ªï¿½ï¿½Îªintï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 		res.push_back(c);
 	}
 	cout << res.size() << "):" << '\n' << res << endl;  
@@ -108,7 +108,7 @@ void decrypt_num(const string& data, vector<string>& code, ofstream& out)
 	for (unsigned char ch : data) {
 		int num = ch;
 		string str = to_string(num);
-		vector<string>::iterator iter = find(code.begin(), code.end(), str); //ÔÚcodeÖÐ²éÕÒstrÎ»ÖÃ£¬·µ»ØÎªµü´úÆ÷ÀàÐÍ 
+		vector<string>::iterator iter = find(code.begin(), code.end(), str); //ï¿½ï¿½codeï¿½Ð²ï¿½ï¿½ï¿½strÎ»ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 		char c = iter - code.begin();  
 		res.push_back(c);
 	}
@@ -119,31 +119,31 @@ void decrypt_num(const string& data, vector<string>& code, ofstream& out)
 
 int main(int argc, char* argv[])
 {
-	bool flag = 0; //Âë±¾±êÖ¾·û(26¸ö×ÖÄ¸£º0£¬ 256¸öÊý×Ö£º1£© 
-	vector<string> code = JudgeAndRead_code(argv[2], flag); //ÅÐ¶Ï²¢¶ÁÈ¡Âë±¾ÎÄ¼þÊý¾Ý 
-	cout << argv[2] << " ÄÚÈÝ(" << code.size() << "):" << endl;  
-	for(auto c : code){	//ÏÔÊ¾Âë±¾ÎÄ¼þÄÚÈÝ 
+	bool flag = 0; //ï¿½ë±¾ï¿½ï¿½Ö¾ï¿½ï¿½(26ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½0ï¿½ï¿½ 256ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½1ï¿½ï¿½ 
+	vector<string> code = JudgeAndRead_code(argv[2], flag); //ï¿½Ð¶Ï²ï¿½ï¿½ï¿½È¡ï¿½ë±¾ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	cout << argv[2] << " ï¿½ï¿½ï¿½ï¿½(" << code.size() << "):" << endl;  
+	for(auto c : code){	//ï¿½ï¿½Ê¾ï¿½ë±¾ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
 		cout << c <<' ';		
 	}
 	cout <<"\n\n\n";
 	
-	string data = Read_data(argv[3]);  //¶ÁÈ¡ÊäÈëÎÄ¼þÊý¾Ý 
-	cout << argv[3] << " ÄÚÈÝ(" << data.size() << "):" << endl;
+	string data = Read_data(argv[3]);  //ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	cout << argv[3] << " ï¿½ï¿½ï¿½ï¿½(" << data.size() << "):" << endl;
 	cout << data << "\n\n\n";
 	
-	ofstream out_data(argv[4], ios::binary); //Êä³öÎÄ¼þÁ÷ 
-	cout << argv[4] << " ÄÚÈÝ(";
+	ofstream out_data(argv[4], ios::binary); //ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ 
+	cout << argv[4] << " ï¿½ï¿½ï¿½ï¿½(";
 	string opt = argv[1];
 	if (opt == "encrypt"){  
-		if(flag == 0){  //Âë±¾Îª26¸ö×ÖÄ¸ 
-			encrypt(data, code[0], out_data);  //±àÂë
+		if(flag == 0){  //ï¿½ë±¾Îª26ï¿½ï¿½ï¿½ï¿½Ä¸ 
+			encrypt(data, code[0], out_data);  //ï¿½ï¿½ï¿½ï¿½
 		}
 		else{
-			encrypt_num(data, code, out_data); //½âÂë 
+			encrypt_num(data, code, out_data); //ï¿½ï¿½ï¿½ï¿½ 
 		}
 	}
 	else if (opt == "decrypt"){
-		if(flag == 0){ //Âë±¾Îª256¸öÊý×Ö 
+		if(flag == 0){ //ï¿½ë±¾Îª256ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 			decrypt(data, code[0], out_data);
 		}
 		else{
@@ -151,6 +151,6 @@ int main(int argc, char* argv[])
 		}
 	}
 	else
-		cout << argv[1] << "ÎÞ·¨Ê¶±ð\nÎÄ¼þ±àÂëÇëÊäÈë:encrypt,ÎÄ¼þ½âÂëÇëÊäÈë:decrypt" << endl;
+		cout << argv[1] << "ï¿½Þ·ï¿½Ê¶ï¿½ï¿½\nï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:encrypt,ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:decrypt" << endl;
 	return 0;
 }
